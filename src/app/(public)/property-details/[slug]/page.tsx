@@ -15,6 +15,7 @@ import {
   ShieldCheck,
   Utensils,
   BookOpen,
+  Coffee,
   Car,
   Zap,
   Droplet,
@@ -86,16 +87,19 @@ function normalizeText(input: string) {
 // }
 
 const AMENITY_ICON_RULES = [
+  { icon: Bed, keywords: ["guest stay", "guest house"] },
   { icon: Bed, keywords: ["cot", "bed", "mattress"] },
   { icon: DoorClosed, keywords: ["cupboard", "wardrobe", "curtain"] },
   { icon: Lamp, keywords: ["dressing table", "lamp", "lighting"] },
   { icon: BookOpen, keywords: ["study table", "study", "chair", "desk"] },
   { icon: Footprints, keywords: ["shoe rack"] },
   { icon: Shirt, keywords: ["iron board", "ironing"] },
+  { icon: Coffee, keywords: [ "cafeteria"] },
   {
     icon: CookingPot,
-    keywords: ["cooking facility", "self-cooking", "kitchen", "dining", "meal", "food", "mess"],
+    keywords: ["cooking facility", "self-cooking", "kitchen", "dining", "meal", "food", "mess",],
   },
+  
   { icon: WashingMachine, keywords: ["washing machine", "laundry"] },
   { icon: Dumbbell, keywords: ["gym", "fitness"] },
   { icon: ArrowUpDown, keywords: ["lift", "elevator"] },
@@ -202,6 +206,9 @@ export default function PropertiesDetailsPage({
         all.findIndex((item) => item.toLowerCase() === facility.toLowerCase()) ===
         index,
     );
+  const highlights = (p.highlights ?? [])
+    .map((highlight) => highlight.trim())
+    .filter(Boolean);
   // const displayName = normalizeName(p.name);
   const displayName = p.name;
 
@@ -338,6 +345,29 @@ export default function PropertiesDetailsPage({
                 {p.audience}
               </p>
             </div>
+            {highlights.length > 0 && (
+              <div className="mt-6 rounded-2xl border border-lavender-200/80 bg-lavender-50/80 p-4 sm:p-5">
+                <div className="flex items-center gap-2">
+                  <Sparkles className="h-4 w-4 text-yaana-charcoal" />
+                  <h3 className="text-sm font-semibold uppercase tracking-[0.22em] text-yaana-charcoal/80">
+                    Highlights
+                  </h3>
+                </div>
+                <div className="mt-4 grid gap-3">
+                  {highlights.map((highlight) => (
+                    <div
+                      key={highlight}
+                      className="flex items-start gap-3 rounded-xl border border-white/70 bg-white/85 px-4 py-3 shadow-sm"
+                    >
+                      <BadgeCheck className="mt-0.5 h-4 w-4 shrink-0 text-yaana-charcoal" />
+                      <p className="text-sm leading-relaxed text-yaana-charcoal/90 sm:text-[15px]">
+                        {highlight}
+                      </p>
+                    </div>
+                  ))}
+                </div>
+              </div>
+            )}
             <div className="mb-5 mt-7 flex flex-wrap items-start justify-between gap-4 text-sm leading-relaxed text-yaana-charcoal/90   sm:text-base">
               <p className="flex items-start gap-2 ">
                 <MapPin className="mt-0.5 h-4 w-4 shrink-0" />

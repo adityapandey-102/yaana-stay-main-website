@@ -28,6 +28,7 @@ export type RentalProperty = {
   img: string[];
   tagline: string;
   positioning: string;
+  highlights?: string[];
   facilities: string[];
   pricing: PropertyPricing[];
   deposit: string;
@@ -69,6 +70,10 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     tagline: "Premium Living for Independent Women",
     positioning:
       "A premium, community-driven residence designed for independent women seeking comfort, safety, modern amenities, and a balanced lifestyle.",
+    highlights: [
+      // "Signature single room at INR 27,000",
+      // "Paid guest house for parents visits and cafeteria access at YAANA Signature",
+    ],
     facilities: [
       "Female-only property",
       "Premium rooms with modern interiors",
@@ -94,9 +99,11 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
       "Drinking water",
       "Cleaning and maintenance",
       "Lounge and chilling area",
+      "Guest stay",
+      "Cafeteria",
     ],
     pricing: [
-      { label: "Single Room", amountPerMonth: "₹ 30,000" },
+      { label: "Single Room", amountPerMonth: "₹ 27,000" },
       { label: "Two Sharing", amountPerMonth: "₹ 16,000" },
       { label: "Three Sharing", amountPerMonth: "₹ 12,000" },
     ],
