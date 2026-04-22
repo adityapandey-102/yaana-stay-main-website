@@ -1,0 +1,463 @@
+openapi: 3.0.3
+info:
+  title: YAANA Livings API
+  version: 1.0.0
+  description: >
+    API for YAANA Livings public forms and admin dashboard (inquiries, visit requests, and blog admin CRUD).
+    Authentication is handled with Supabase session cookies for admin operations.
+servers:
+  - url: http://localhost:3000
+    description: Local development
+  - url: https://yaanalivings.com
+    description: Production
+tags:
+  - name: Auth
+  - name: Blogs
+  - name: Inquiries
+  - name: Visits
+
+paths:
+  /api/auth/login:
+    post:
+      tags: [Auth]
+      summary: Sign in admin user
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [email, password]
+              properties:
+                email:
+                  type: string
+                  format: email
+                password:
+                  type: string
+      responses:
+        '200':
+          description: Authenticated
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      email:
+                        type: string
+        '400':
+          description: Invalid input
+        '401':
+          description: Invalid credentials
+
+  /api/auth/logout:
+    post:
+      tags: [Auth]
+      summary: Sign out admin user
+      responses:
+        '200':
+          description: Signed out
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  success:
+                    type: boolean
+
+  /api/auth/me:
+    get:
+      tags: [Auth]
+      summary: Get current auth state
+      responses:
+        '200':
+          description: Authenticated user
+          content:
+            application/json:
+              schema:
+                type: object
+                properties:
+                  authenticated:
+                    type: boolean
+                  user:
+                    type: object
+                    properties:
+                      id:
+                        type: string
+                      email:
+                        type: string
+        '401':
+          description: Not authenticated
+
+  /api/admin/blogs:
+    get:
+      tags: [Blogs]
+      summary: Get blogs list or blog by id (admin)
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+        - in: query
+          name: q
+          schema:
+            type: string
+        - in: query
+          name: id
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Success
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: no-store, no-cache, must-revalidate
+        '401':
+          description: Unauthorized
+
+    post:
+      tags: [Blogs]
+      summary: Create blog (admin)
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [title, slug, content, image]
+              properties:
+                title: { type: string }
+                slug: { type: string }
+                excerpt: { type: string }
+                content: { type: string }
+                metaTitle: { type: string }
+                metaDescription: { type: string }
+                published:
+                  type: string
+                  enum: ['true', 'false']
+                publishedAt:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '201':
+          description: Blog created
+        '400':
+          description: Validation error / slug conflict
+        '401':
+          description: Unauthorized
+
+    put:
+      tags: [Blogs]
+      summary: Update blog (admin)
+      requestBody:
+        required: true
+        content:
+          multipart/form-data:
+            schema:
+              type: object
+              required: [id, title, slug, content]
+              properties:
+                id: { type: string }
+                title: { type: string }
+                slug: { type: string }
+                excerpt: { type: string }
+                content: { type: string }
+                metaTitle: { type: string }
+                metaDescription: { type: string }
+                published:
+                  type: string
+                  enum: ['true', 'false']
+                publishedAt:
+                  type: string
+                image:
+                  type: string
+                  format: binary
+      responses:
+        '200':
+          description: Blog updated
+        '400':
+          description: Validation error / slug conflict
+        '401':
+          description: Unauthorized
+        '404':
+          description: Blog not found
+
+    delete:
+      tags: [Blogs]
+      summary: Delete blog (admin)
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: no-store, no-cache, must-revalidate
+        '400':
+          description: Missing id
+        '401':
+          description: Unauthorized
+        '404':
+          description: Blog not found
+
+  /api/inquiries:
+    get:
+      tags: [Inquiries]
+      summary: List inquiries (admin)
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [ALL, NEW, CONTACTED, CLOSED]
+      responses:
+        '200':
+          description: Inquiry list
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+        '401':
+          description: Unauthorized
+
+    post:
+      tags: [Inquiries]
+      summary: Create inquiry (public)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, phone, source]
+              properties:
+                name: { type: string }
+                phone: { type: string }
+                email: { type: string, nullable: true }
+                message: { type: string, nullable: true }
+                propertyId: { type: string, nullable: true }
+                source: { type: string }
+      responses:
+        '201':
+          description: Inquiry created
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: no-store, no-cache, must-revalidate
+        '400':
+          description: Validation failed
+
+    patch:
+      tags: [Inquiries]
+      summary: Update inquiry status (admin)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id, status]
+              properties:
+                id: { type: string }
+                status:
+                  type: string
+                  enum: [NEW, CONTACTED, CLOSED]
+      responses:
+        '200':
+          description: Updated
+        '401':
+          description: Unauthorized
+
+    delete:
+      tags: [Inquiries]
+      summary: Delete inquiry (admin)
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+        '401':
+          description: Unauthorized
+
+  /api/visits:
+    get:
+      tags: [Visits]
+      summary: List visits (admin)
+      parameters:
+        - in: query
+          name: page
+          schema:
+            type: integer
+            minimum: 1
+            default: 1
+        - in: query
+          name: limit
+          schema:
+            type: integer
+            minimum: 1
+            maximum: 50
+            default: 10
+        - in: query
+          name: status
+          schema:
+            type: string
+            enum: [ALL, SCHEDULED, COMPLETED, CANCELLED]
+      responses:
+        '200':
+          description: Visit list
+        '401':
+          description: Unauthorized
+
+    post:
+      tags: [Visits]
+      summary: Create visit request (public)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [name, phone, visitDate, visitTime]
+              properties:
+                name: { type: string }
+                phone: { type: string }
+                email: { type: string, nullable: true }
+                propertyId: { type: string, nullable: true }
+                visitDate:
+                  type: string
+                  format: date
+                visitTime:
+                  type: string
+                message: { type: string, nullable: true }
+      responses:
+        '201':
+          description: Visit created
+          headers:
+            Cache-Control:
+              schema:
+                type: string
+              description: no-store, no-cache, must-revalidate
+        '400':
+          description: Validation failed
+
+    patch:
+      tags: [Visits]
+      summary: Update visit status (admin)
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required: [id, status]
+              properties:
+                id: { type: string }
+                status:
+                  type: string
+                  enum: [SCHEDULED, COMPLETED, CANCELLED]
+      responses:
+        '200':
+          description: Updated
+        '401':
+          description: Unauthorized
+
+    delete:
+      tags: [Visits]
+      summary: Delete visit (admin)
+      parameters:
+        - in: query
+          name: id
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Deleted
+        '401':
+          description: Unauthorized
+
+components:
+  schemas:
+    Blog:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        slug: { type: string }
+        excerpt: { type: string, nullable: true }
+        content: { type: string }
+        featuredImage: { type: string, nullable: true }
+        featuredImageUrl: { type: string, nullable: true }
+        metaTitle: { type: string, nullable: true }
+        metaDescription: { type: string, nullable: true }
+        published: { type: boolean }
+        publishedAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time
+        updatedAt:
+          type: string
+          format: date-time
+    BlogListItem:
+      type: object
+      properties:
+        id: { type: string }
+        title: { type: string }
+        slug: { type: string }
+        excerpt: { type: string, nullable: true }
+        featuredImage: { type: string, nullable: true }
+        featuredImageUrl: { type: string, nullable: true }
+        published: { type: boolean }
+        publishedAt:
+          type: string
+          format: date-time
+          nullable: true
+        createdAt:
+          type: string
+          format: date-time

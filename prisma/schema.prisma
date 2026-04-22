@@ -1,0 +1,76 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model Blog {
+  id              String    @id @default(dbgenerated("gen_random_uuid()")) @db.Uuid
+  title           String
+  slug            String    @unique
+  excerpt         String?
+  content         String
+  featuredImage   String?   @map("featured_image")
+  metaTitle       String?   @map("meta_title")
+  metaDescription String?   @map("meta_description")
+  published       Boolean   @default(false)
+  publishedAt     DateTime? @map("published_at") @db.Timestamptz
+  createdAt       DateTime  @default(now()) @map("created_at") @db.Timestamptz
+  updatedAt       DateTime  @updatedAt @map("updated_at") @db.Timestamptz
+
+  @@index([slug])
+  @@index([published])
+  @@index([publishedAt])
+  @@index([published, publishedAt(sort: Desc)])
+  // For scalable text search on title/slug/excerpt, prefer Postgres GIN + pg_trgm indexes via SQL migration.
+  @@map("blogs")
+}
+
+model Inquiry {
+  id         String   @id @default(uuid())
+  name       String
+  phone      String
+  email      String?
+  message    String?
+  propertyId String?
+  source     String   @default("website")
+  status     InquiryStatus @default(NEW)
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // visits     Visit[]
+  @@index([status, createdAt])
+}
+
+model Visit {
+  id         String   @id @default(uuid())
+  // inquiryId  String
+  name       String
+  phone      String
+  email      String?
+  propertyId String?
+  visitDate  DateTime
+  visitTime  String
+  status     VisitStatus @default(SCHEDULED)
+  // notes      String?  
+  message    String?
+  createdAt  DateTime @default(now())
+  updatedAt  DateTime @updatedAt
+
+  // inquiry    Inquiry @relation(fields: [inquiryId], references: [id], onDelete: Cascade)
+  @@index([status, createdAt])
+}
+
+enum InquiryStatus {
+  NEW
+  CONTACTED
+  CLOSED
+}
+
+enum VisitStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+}
