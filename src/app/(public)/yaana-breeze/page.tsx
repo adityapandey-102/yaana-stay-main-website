@@ -361,7 +361,7 @@ const YaanaBreeze: FC = () => {
               Sit back & relax,
             </p>
             <p className="mt-0.5 text-base font-medium text-white/80 sm:text-lg">
-              We'll take care of the rest.
+              We&apos;ll take care of the rest.
             </p>
             <div className="mt-1 text-white/40 text-sm">♡</div>
           </div>
@@ -427,11 +427,11 @@ const YaanaBreeze: FC = () => {
           <SectionLabel text="About the Service" />
           <div className="mx-auto max-w-2xl space-y-3 text-center text-sm leading-relaxed text-gray-500">
             <p>Yaana Breeze is a thoughtfully designed laundry service created exclusively for the girls of Yaana, making everyday living simpler and more comfortable.</p>
-            <p>Just drop off your clothes at Yaana Living, and they'll be professionally washed, carefully dried, and neatly ironed—ready for you to pick up fresh and hassle-free.</p>
+            <p>Just drop off your clothes at Yaana Living, and they&apos;ll be professionally washed, carefully dried, and neatly ironed—ready for you to pick up fresh and hassle-free.</p>
             <p>
               Priced at{" "}
               <span className="font-semibold text-[#815AC0]">₹500 for 5 kg</span>
-              , it's a convenient, reliable solution that saves time while ensuring your clothes are handled with care.
+              , it&apos;s a convenient, reliable solution that saves time while ensuring your clothes are handled with care.
             </p>
           </div>
         </section>
@@ -444,7 +444,7 @@ const YaanaBreeze: FC = () => {
             <span className="text-[#815AC0] italic">Confident you.</span>
           </h2>
           <p className="mx-auto mt-2 max-w-sm text-sm text-gray-400">
-            Join the Yaana girls who've made laundry the easiest part of their week. ♡
+            Join the Yaana girls who&apos;ve made laundry the easiest part of their week. ♡
           </p>
           <button
             type="button"
@@ -534,3 +534,4 @@ const YaanaBreeze: FC = () => {
 };
 
 export default YaanaBreeze;
+
