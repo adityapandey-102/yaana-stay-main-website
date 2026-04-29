@@ -2,6 +2,7 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Menu, X } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Button } from "@/components/ui/button";
@@ -19,11 +20,16 @@ const navLinks = [
 ];
 
 export function Header() {
+  const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [scheduleVisitOpen, setScheduleVisitOpen] = useState(false);
-    const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false);
 
-     // ✅ Detect scroll
+  if (pathname === "/yaana-breeze") {
+    return null;
+  }
+
+  // ✅ Detect scroll
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 20);
@@ -39,14 +45,14 @@ export function Header() {
       <header
         className={`
           sticky-- fixed top-0 z-50 transition-all w-full duration-300
-          ${isScrolled 
-            ? "bg-white text-black shadow-md" 
+          ${isScrolled
+            ? "bg-white text-black shadow-md"
             : "bg-transparent  text-white"}
         `}
       >
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
-            <Link
+            {/* <Link
               href="/"
               className="flex items-center gap-3"
             >
@@ -62,19 +68,29 @@ export function Header() {
                     " text-white/70"}`}>
                 Livings<br />Premium Experience
               </div>
-            </Link>
+            </Link> */}
+
+            <div className="flex-shrink-0">
+              <Image
+                src={"/assets/logo1.png"}
+                alt="yaana"
+                width={120}
+                height={48}
+                className={`h-16 lg:h-20 w-auto object-contain transition-all duration-300 `}
+                priority
+              />
+            </div>
 
             <div className="flex items-center gap-2 lg:gap-4">
-              {isScrolled && <Button 
-                size="sm" 
+              {isScrolled && <Button
+                size="sm"
                 onClick={() => setScheduleVisitOpen(true)}
                 className={`
                   hover:bg-lavender-700 hover:text-white uppercase text-xs font-semibold tracking-wide
-                  ${
-                    isScrolled?
+                  ${isScrolled ?
                     "bg-lavender-600 text-white "
                     :
-                  "bg-lavender-600 text-white"
+                    "bg-lavender-600 text-white"
                   }
                   `}
               >
@@ -83,10 +99,9 @@ export function Header() {
               <Button
                 variant="ghost"
                 size="lg"
-                className={`"p-2  ${
-                    isScrolled?
-                    "text-yaana-charcoal"
-                     :"text-white"} hover:text-lavender-700 hover:bg-white/10"`}
+                className={`"p-2  ${isScrolled ?
+                  "text-yaana-charcoal"
+                  : "text-white"} hover:text-lavender-700 hover:bg-white/10"`}
                 onClick={() => setSidebarOpen(!sidebarOpen)}
               >
                 {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
@@ -125,7 +140,7 @@ export function Header() {
                     <X className="w-6 h-6" />
                   </Button>
                 </div>
-                
+
                 <nav className="space-y-3">
                   {navLinks.map((link, index) => (
                     <motion.div
@@ -161,7 +176,7 @@ export function Header() {
       </AnimatePresence>
       {/* <GetInTouchModal open={scheduleVisitOpen} onClose={() => setScheduleVisitOpen(false)} /> */}
       <ScheduleVisitModal open={scheduleVisitOpen} onClose={() => setScheduleVisitOpen(false)} />
-      
+
     </>
   );
 }

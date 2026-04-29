@@ -101,6 +101,8 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
       "Lounge and chilling area",
       "Guest stay",
       "Cafeteria",
+      "Recreation Centre",
+      "Shoe racks",
     ],
     pricing: [
       { label: "Single Room", amountPerMonth: "₹ 27,000" },

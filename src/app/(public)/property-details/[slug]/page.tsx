@@ -41,6 +41,7 @@ import {
   Dumbbell,
   WashingMachine,
   CookingPot,
+  Armchair
 } from "lucide-react";
 import { PropertyShareButtons } from "@/components/property/PropertyShareButtons";
 import { PropertyImageGallery } from "@/components/property/PropertyImageGallery";
@@ -123,6 +124,7 @@ const AMENITY_ICON_RULES = [
   { icon: KeyRound, keywords: ["access", "key", "keyless"] },
   { icon: Car, keywords: ["parking"] },
   { icon: Utensils, keywords: ["utensils", "dining"] },
+  { icon: Armchair, keywords: ["recreation"] },
 ] as const;
 
 function amenityIcon(label: string) {

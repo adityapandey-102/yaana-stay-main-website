@@ -9,6 +9,7 @@ import { Header } from "@/components/Header";
 import { Footer } from "@/components/Footer";
 import { FloatingContactButtons } from "@/components/FloatingContactButtons";
 import { RentalProperties } from "@/components/sections/RentalProperties";
+import NearbySection from "@/components/sections/NearbySection";
 
 export default function Home() {
   return (
@@ -18,7 +19,8 @@ export default function Home() {
       <WhyYaana />
       <RentalProperties/>
       <FeaturedBlogs />
-      <Perks />
+      <Perks /> 
+      <NearbySection/>
       <GoogleReviews />
       <NotJustAPlace />
       <Contact />
