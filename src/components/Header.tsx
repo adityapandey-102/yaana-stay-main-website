@@ -15,14 +15,38 @@ const navLinks = [
   { href: "/life-at-yaana", label: "Life @  YAANA" },
   { href: "/about", label: "About Us" },
   { href: "/rental", label: "Properties" },
+  { href: "/yaana-breeze", label: "Yaana Breeze" },
   { href: "/contact", label: "Contact Us" },
 ];
+
+const DEFAULT_LOGO = "/assets/logos/yaana.jpeg";
+
+function getHeaderLogo(pathname: string) {
+  if (pathname.startsWith("/property-details/YAANA-COMFORTS")) {
+    return "/assets/logos/yaana-comfort.jpeg";
+  }
+
+  if (pathname.startsWith("/property-details/YAANA-HOMES")) {
+    return "/assets/logos/yaana-homes.jpeg";
+  }
+
+  if (pathname.startsWith("/property-details/YAANA-LIVING")) {
+    return "/assets/logos/yaana-living.jpeg";
+  }
+
+  if (pathname.startsWith("/property-details/YAANA-SIGNATURE")) {
+    return "/assets/logos/yaana-signature.jpeg";
+  }
+
+  return DEFAULT_LOGO;
+}
 
 export function Header() {
   const pathname = usePathname();
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const [scheduleVisitOpen, setScheduleVisitOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const headerLogo = getHeaderLogo(pathname);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -50,14 +74,18 @@ export function Header() {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="flex items-center justify-between h-16 lg:h-20">
             <div className="flex-shrink-0">
-              <Image
-                src="/assets/logo1.png"
-                alt="yaana"
-                width={120}
-                height={48}
-                className="h-16 lg:h-20 w-auto object-contain transition-all duration-300"
-                priority
-              />
+              <Link href="/" aria-label="YAANA home">
+                <div className="flex h-12 w-12 items-center justify-center overflow-hidden rounded-full border-- border-white/30- bg-white shadow-sm transition-all duration-300 lg:h-14 lg:w-14">
+                  <Image
+                    src={headerLogo}
+                    alt="YAANA logo"
+                    width={56}
+                    height={56}
+                    className="h-full w-full object-cover"
+                    priority
+                  />
+                </div>
+              </Link>
             </div>
 
             <div className="flex items-center gap-2 lg:gap-4">

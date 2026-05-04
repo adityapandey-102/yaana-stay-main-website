@@ -163,14 +163,30 @@ const YaanaBreeze: FC = () => {
       <header className="fixed inset-x-0 top-0 z-40">
         <div className="mx-auto max-w-6xl px-4 pt-4 sm:px-6 sm:pt-5">
           <div className="flex items-center justify-between rounded-full border border-[#E8D9F5] bg-white/82 px-4 py-3 shadow-lg shadow-[#815AC0]/8 backdrop-blur-md sm:px-5">
-            <Link href="/yaana-breeze" className="min-w-0">
-              <p className="font-serif text-lg font-bold leading-none text-[#3D1F6B] sm:text-xl">
-                Yaana <span className="italic text-[#815AC0]">Breeze</span>
-              </p>
-              <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#815AC0]/70">
-                Laundry Service
-              </p>
-            </Link>
+            <div className="flex min-w-0 items-center gap-3">
+              <Link
+                href="/yaana-breeze"
+                aria-label="Yaana Breeze"
+                className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#DCC8EF] bg-white shadow-sm"
+              >
+                <Image
+                  src="/assets/logos/yaana-breeze.jpeg"
+                  alt="Yaana Breeze logo"
+                  width={48}
+                  height={48}
+                  className="h-full w-full object-cover"
+                  priority
+                />
+              </Link>
+              <Link href="/yaana-breeze" className="min-w-0">
+                <p className="font-serif text-lg font-bold leading-none text-[#3D1F6B] sm:text-xl">
+                  Yaana <span className="italic text-[#815AC0]">Breeze</span>
+                </p>
+                <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#815AC0]/70">
+                  Laundry Service
+                </p>
+              </Link>
+            </div>
 
             <button
               type="button"
@@ -297,12 +313,12 @@ const YaanaBreeze: FC = () => {
               </p>
 
               <div className="flex flex-wrap gap-3">
-                <button
-                  type="button"
+                <a
+                  href="tel:9844749685"
                   className="flex items-center gap-2 rounded-full bg-[#815AC0] px-6 py-2.5 text-sm font-semibold text-white shadow-lg shadow-[#815AC0]/30 transition-all hover:bg-[#6247AA] hover:shadow-[#6247AA]/30 active:scale-95"
                 >
                   Start Laundry <ChevronRight className="h-4 w-4" />
-                </button>
+                </a>
                 <a
                   href="#details"
                   className="flex items-center gap-2 rounded-full border border-[#C4A8E8] bg-white px-6 py-2.5 text-sm font-semibold text-[#815AC0] transition-all hover:bg-[#F7F1FB] active:scale-95"
@@ -446,12 +462,12 @@ const YaanaBreeze: FC = () => {
           <p className="mx-auto mt-2 max-w-sm text-sm text-gray-400">
             Join the Yaana girls who&apos;ve made laundry the easiest part of their week. ♡
           </p>
-          <button
-            type="button"
+          <a
+            href="tel:9844749685"
             className="mt-6 inline-flex items-center gap-2 rounded-full bg-[#815AC0] px-10 py-3 text-sm font-semibold text-white shadow-lg shadow-[#815AC0]/30 transition-all hover:bg-[#6247AA] hover:shadow-[#6247AA]/30 active:scale-95"
           >
             Get Started <ChevronRight className="h-4 w-4" />
-          </button>
+          </a>
         </section>
 
       </main>
@@ -534,4 +550,3 @@ const YaanaBreeze: FC = () => {
 };
 
 export default YaanaBreeze;
-
