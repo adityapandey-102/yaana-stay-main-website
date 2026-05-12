@@ -57,7 +57,7 @@ export function Header() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  if (pathname === "/yaana-breeze") {
+  if (pathname === "/yaana-breeze" || pathname === "/yaana-outhana") {
     return null;
   }
 

@@ -1,4 +1,7 @@
+ "use client";
+
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { Phone, Mail, MapPin } from "lucide-react";
 import { CONTACT } from "@/data/contact";
 
@@ -24,6 +27,12 @@ const legalLinks = [
 ];
 
 export function Footer() {
+  const pathname = usePathname();
+
+  if (pathname === "/yaana-breeze" || pathname === "/yaana-outhana") {
+    return null;
+  }
+
   return (
     <footer className="relative bg-lavender-800-- bg-gradient-to-br   from-purple-200 via-purple-400   to-yaana-dark-lavender/70 text-white--">
 

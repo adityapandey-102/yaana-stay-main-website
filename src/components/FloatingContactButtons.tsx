@@ -1,6 +1,7 @@
 "use client";
 
 import { Phone, MessageCircle } from "lucide-react";
+import { usePathname } from "next/navigation";
 import { CONTACT } from "@/data/contact";
 
 function onlyDigits(value: string) {
@@ -16,6 +17,12 @@ const whatsappText = encodeURIComponent(
 const whatsappUrl = `https://wa.me/${whatsappNumber}?text=${whatsappText}`;
 
 export function FloatingContactButtons() {
+  const pathname = usePathname();
+
+  if (pathname === "/yaana-breeze" || pathname === "/yaana-outhana") {
+    return null;
+  }
+
   return (
     <div className="fixed right-4 bottom-6 z-40 flex flex-col gap-3">
       <a
