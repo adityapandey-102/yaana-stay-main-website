@@ -22,7 +22,7 @@ export function WhyYaana() {
             {/* <div className="absolute inset-0 bg-gradient-to-br from-lavender-100/70 via-white/30 to-lavender-200/40" /> */}
             <div className="relative overflow-hidden -rounded-[1.6rem]">
               <Image
-                src="/assets/founders.jpeg"
+                src="/assets/founders1.jpg"
                 alt="Divya Prasad, Founder and Proprietrix of YAANA Group"
                 width={900}
                 height={1100}

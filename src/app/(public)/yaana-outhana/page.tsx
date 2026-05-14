@@ -27,6 +27,7 @@ const PAMPHLET_SRC = "/assets/yaana-outhana-pamphlet.jpeg";
 const NAV_LINKS = [
   { href: "#about", label: "About" },
   { href: "#menu", label: "Menu" },
+  { href: "#pricing", label: "Pricing" },
   { href: "#speciality", label: "Speciality" },
   { href: "#contact", label: "Contact" },
 ] as const;
@@ -183,12 +184,18 @@ const MENU_SECTIONS = [
       "Tomato Dal",
       "Moong Dal",
       "Palak Pappu",
+      "Malenadu Huralikattu",
+    ],
+  },
+  {
+    title: "Sambar Varieties",
+    subtitle: "Classic sambar selections served across traditional feasts and meals.",
+    items: [
       "Sambar",
       "Vegetable Sambar",
       "Drumstick Sambar",
       "Ladies Finger / Radish Sambar",
       "Mixed Dal Sambar",
-      "Malenadu Huralikattu",
     ],
   },
   {
@@ -219,6 +226,18 @@ const MENU_SECTIONS = [
     items: [
       "Pineapple Gojju",
       "Dry Grapes (Kismis) Gojju",
+    ],
+  },
+  {
+    title: "Accompaniments",
+    subtitle: "Table essentials and finishing sides that complete the meal.",
+    items: [
+      "Curd",
+      "Spiced Buttermilk",
+      "Ghee",
+      "Pickle (Mango / Mix Veg / Lemon / Herelikaayi)",
+      "Salt",
+      "Papad",
     ],
   },
   {
@@ -260,8 +279,9 @@ const MENU_SECTIONS = [
 const SERVICE_HIGHLIGHTS = [
   "Authentic South Indian cuisine",
   "Customized menus for every occasion",
-  "Fresh ingredients and traditional recipes",
-  "Ideal for weddings, poojas, festivals, and family gatherings",
+  "Fresh ingredients, traditional recipes",
+  "Weddings, festivals, & family celebrations",
+  "Made with love, served with warmth",
 ] as const;
 
 const DINING_ESSENTIALS = [
@@ -271,8 +291,44 @@ const DINING_ESSENTIALS = [
   "Tamboola",
 ] as const;
 
+const PRICING_PACKAGES = [
+  {
+    title: "Breakfast Package",
+    price: "₹150 per plate",
+    includes:
+      "1 Spoon Item + 1 Tiffin Item + Chutney & Sambar + 1 Welcome Drink",
+  },
+  {
+    title: "Lunch / Dinner Package",
+    price: "₹350 per plate",
+    includes:
+      "1 Appetizer + 1 Chat + 1 Salad + 1 Palya + 1 Roti + 1 Curry + 1 Rice Item (with raita) + 1 Gojju + 1 Chutney + 2 Sweets + 1 Dal + 1 Sambar + 1 Rasam",
+  },
+] as const;
+
+const CUSTOMIZATION_ADD_ONS = [
+  { item: "Appetizer / Chat", price: "₹20" },
+  { item: "Bread", price: "₹15" },
+  { item: "Curry", price: "₹25" },
+  { item: "Rice", price: "₹20" },
+  { item: "Dal / Sambar / Rasam", price: "₹15" },
+  { item: "Sweet", price: "₹25" },
+  { item: "Icecream", price: "₹25" },
+] as const;
+
 function buildWhatsAppLink(item: string, category: string) {
-  const text = `Namaskara, I would like to enquire about "${item}" from the ${category} menu at Yaana Outhana. Please share more details.`;
+  const text = `Namaskara, I would like to enquire about "${item}" from the ${category} menu at YAANA Outhana. Please share more details.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
+function buildCategoryWhatsAppLink(category: string) {
+  const text = `Namaskara, I would like to enquire about the ${category} variety menu at YAANA Outhana. Please share more details.`;
+  return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
+}
+
+function buildPricingWhatsAppLink() {
+  const text =
+    "Namaskara, I would like to enquire about the pricing structure and packages at YAANA Outhana. Please share more details.";
   return `https://wa.me/${WHATSAPP_NUMBER}?text=${encodeURIComponent(text)}`;
 }
 
@@ -282,6 +338,7 @@ export default function YaanaOuthanaPage() {
     "Tiffin Items",
     "Rice Varieties",
     "Sweets & Desserts",
+    "Accompaniments",
   ]);
 
   const sectionCountLabel = useMemo(
@@ -323,7 +380,7 @@ export default function YaanaOuthanaPage() {
                 Shri Chowdeshwari
               </p>
               <p className="font-serif text-2xl font-semibold text-[#5a2316]">
-                Yaana Outhana
+                YAANA Outhana
               </p>
             </div>
           </Link>
@@ -378,7 +435,7 @@ export default function YaanaOuthanaPage() {
               className="fixed right-0 top-0 z-50 flex h-screen w-[84vw] max-w-sm flex-col bg-[#5a2316] px-6 py-6 text-[#f8ecd8]"
             >
               <div className="mb-8 flex items-center justify-between">
-                <p className="font-serif text-2xl font-semibold">Yaana Outhana</p>
+                <p className="font-serif text-2xl font-semibold">YAANA Outhana</p>
                 <button
                   type="button"
                   onClick={() => setMenuOpen(false)}
@@ -439,13 +496,12 @@ export default function YaanaOuthanaPage() {
                   A Traditional Feast Experience
                 </p>
                 <h1 className="font-serif text-5xl font-semibold leading-[0.92] text-[#5a2316] sm:text-6xl lg:text-7xl">
-                  Yaana
+                  YAANA
                   <span className="block text-[#8f5a22]">Outhana</span>
                 </h1>
                 <p className="max-w-2xl text-lg leading-8 text-[#6f4732]">
-                  A commercial kitchen menu page inspired directly by your traditional
-                  flyer design, crafted for professional enquiries, event catering,
-                  festive dining, and authentic South Indian celebrations.
+                  Authentic South Indian cuisine for every occasion.
+                  Traditional menu selections for enquiries, catering, and celebrations.
                 </p>
               </div>
 
@@ -463,7 +519,7 @@ export default function YaanaOuthanaPage() {
                     Enquiry Method
                   </p>
                   <p className="mt-2 text-lg font-semibold text-[#5a2316]">
-                    Tap any dish to message the kitchen
+                    Use the Enquire Now buttons for each variety
                   </p>
                 </div>
               </div>
@@ -513,13 +569,12 @@ export default function YaanaOuthanaPage() {
                 Bringing Tradition To Your Table
               </p>
               <h2 className="mt-3 font-serif text-3xl font-semibold text-[#5a2316] sm:text-4xl">
-                Traditional catering presentation with a modern enquiry flow
+                A Traditional Feast Experience
               </h2>
               <p className="mt-4 text-base leading-8 text-[#6f4732]">
-                Yaana Outhana is presented here as a refined kitchen menu experience:
-                traditional in mood, festive in palette, and practical for business
-                enquiries. Each category opens like a menu counter, and every dish can
-                be tapped to send a direct WhatsApp enquiry to the kitchen team.
+                YAANA Outhana brings together traditional flavours, festive warmth,
+                and curated menu choices for every occasion. Open a menu category and
+                tap any dish to enquire directly on WhatsApp.
               </p>
             </div>
 
@@ -530,7 +585,7 @@ export default function YaanaOuthanaPage() {
               <div className="flex items-center gap-3">
                 <Leaf className="h-5 w-5 text-[#d7b16d]" />
                 <p className="text-sm font-semibold uppercase tracking-[0.28em] text-[#d7b16d]">
-                  Kitchen Highlights
+                  Authentic South Indian Cuisine For Every Occasion
                 </p>
               </div>
               <div className="mt-5 space-y-4">
@@ -556,9 +611,8 @@ export default function YaanaOuthanaPage() {
               Explore the menu by variety
             </h2>
             <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-[#6f4732]">
-              Open any variety below, browse the listed dishes, and tap a dish name to
-              create a prefilled WhatsApp enquiry. This page intentionally does not show
-              any price tags.
+              Browse each variety, view the items, and tap any dish to send a
+              WhatsApp enquiry directly to the kitchen.
             </p>
           </div>
 
@@ -581,16 +635,28 @@ export default function YaanaOuthanaPage() {
                     className="flex w-full items-center justify-between gap-4 px-5 py-5 text-left sm:px-7"
                     aria-expanded={isOpen}
                   >
-                    <div>
-                      <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#8f5a22]">
-                        Variety {String(index + 1).padStart(2, "0")}
-                      </p>
-                      <h3 className="mt-2 font-serif text-2xl font-semibold text-[#5a2316] sm:text-3xl">
-                        {section.title}
-                      </h3>
-                      <p className="mt-2 max-w-3xl text-sm leading-7 text-[#6f4732]">
-                        {section.subtitle}
-                      </p>
+                    <div className="flex flex-1 items-center justify-between gap-4">
+                      <div>
+                        <p className="text-xs font-semibold uppercase tracking-[0.26em] text-[#8f5a22]">
+                          Variety {String(index + 1).padStart(2, "0")}
+                        </p>
+                        <h3 className="mt-2 font-serif text-2xl font-semibold text-[#5a2316] sm:text-3xl">
+                          {section.title}
+                        </h3>
+                        <p className="mt-2 max-w-3xl text-sm leading-7 text-[#6f4732]">
+                          {section.subtitle}
+                        </p>
+                      </div>
+                      <a
+                        href={buildCategoryWhatsAppLink(section.title)}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        onClick={(event) => event.stopPropagation()}
+                        className="hidden shrink-0 self-center items-center gap-2 rounded-full bg-[#5a2316] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#f8ecd8] transition hover:bg-[#7b2f1f] sm:inline-flex"
+                      >
+                        <MessageCircle className="h-3.5 w-3.5" />
+                        Enquire Now
+                      </a>
                     </div>
                     <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full border border-[#b78237]/25 bg-white text-[#5a2316]">
                       <ChevronDown
@@ -609,27 +675,35 @@ export default function YaanaOuthanaPage() {
                         className="overflow-hidden"
                       >
                         <div className="border-t border-[#8f5a22]/10 px-5 pb-5 pt-4 sm:px-7 sm:pb-7">
-                          <div className="grid gap-3 md:grid-cols-2 xl:grid-cols-3">
+                          <a
+                            href={buildCategoryWhatsAppLink(section.title)}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="mb-4 inline-flex items-center gap-2 rounded-full bg-[#5a2316] px-4 py-2 text-xs font-semibold uppercase tracking-[0.18em] text-[#f8ecd8] transition hover:bg-[#7b2f1f] sm:hidden"
+                          >
+                            <MessageCircle className="h-3.5 w-3.5" />
+                            Enquire Now
+                          </a>
+                          <div className="grid gap-2 md:grid-cols-2 xl:grid-cols-3">
                             {section.items.map((item) => (
-                              <a
+                              // <a
+                              <div
                                 key={item}
-                                href={buildWhatsAppLink(item, section.title)}
-                                target="_blank"
+                                // href={buildWhatsAppLink(item, section.title)}
+                                // target="_blank"
                                 rel="noopener noreferrer"
-                                className="group rounded-2xl border border-[#b78237]/15 bg-white/80 px-4 py-4 shadow-sm transition hover:-translate-y-0.5 hover:border-[#8f5a22]/35 hover:bg-white"
+                                className="group rounded-xl border border-[#b78237]/15 bg-white/80 px-3 py-3 shadow-sm transition hover:border-[#8f5a22]/35 hover:bg-white"
                               >
-                                <div className="flex items-start justify-between gap-3">
+                                <div className="flex items-start gap-3">
+                                  <span className="mt-1 h-2 w-2 shrink-0 rounded-full bg-[#b78237]" />
                                   <div>
-                                    <p className="text-base font-semibold leading-7 text-[#5a2316]">
+                                    <p className="text-sm font-semibold leading-6 text-[#5a2316] sm:text-[15px]">
                                       {item}
                                     </p>
-                                    <p className="mt-1 text-xs uppercase tracking-[0.2em] text-[#8f5a22]">
-                                      Tap to enquire on WhatsApp
-                                    </p>
                                   </div>
-                                  <MessageCircle className="mt-1 h-4 w-4 shrink-0 text-[#8f5a22] transition group-hover:scale-110" />
                                 </div>
-                              </a>
+                              {/* </a> */}
+                              </div>
                             ))}
                           </div>
                         </div>
@@ -641,6 +715,100 @@ export default function YaanaOuthanaPage() {
             })}
           </div>
         </section>
+
+
+
+<section
+  id="pricing"
+  className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:py-8"
+>
+  <div className="rounded-[2rem] border border-[#8f5a22]/15 bg-[#fff9ef]/90 p-8 shadow-sm">
+    
+    {/* Header */}
+            <div className="text-center">
+              <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#8f5a22]">
+                Pricing Structure
+              </p>
+      <h2 className="mt-3 font-serif text-4xl font-semibold text-[#5a2316] sm:text-5xl">
+        Packages from the menu card
+      </h2>
+              <p className="mx-auto mt-4 max-w-3xl text-base leading-8 text-[#6f4732]">
+                The package pricing and add-on rates below are included exactly
+                from the YAANA Outhana menu card.
+              </p>
+              <a
+                href={buildPricingWhatsAppLink()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#5a2316] px-5 py-2.5 text-sm font-semibold text-[#f8ecd8] transition hover:bg-[#7b2f1f]"
+              >
+                <MessageCircle className="h-4 w-4" />
+                Enquire Now
+              </a>
+            </div>
+
+    {/* Package Cards */}
+    <div className="mt-10 grid gap-4 lg:grid-cols-2">
+      {PRICING_PACKAGES.map((pkg) => (
+        <div
+          key={pkg.title}
+          className="group relative overflow-hidden rounded-2xl border border-[#b78237]/20 bg-white p-6 shadow-sm transition-shadow hover:shadow-md"
+        >
+          {/* Top accent bar */}
+          <div className="absolute inset-x-0 top-0 h-[3px] rounded-t-2xl bg-gradient-to-r from-[#8f5a22] via-[#e3c17d] to-[#8f5a22]" />
+          
+          <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#8f5a22]">
+            {pkg.title}
+          </p>
+          <p className="mt-2 font-serif text-3xl font-semibold text-[#5a2316]">
+            {pkg.price}
+          </p>
+          <div className="mt-4 border-t border-[#b78237]/15 pt-4">
+            <p className="text-sm leading-6 text-[#6f4732]">
+              {pkg.includes}
+            </p>
+          </div>
+        </div>
+      ))}
+    </div>
+
+    {/* Add-Ons */}
+    <div className="mt-5 rounded-2xl bg-gradient-to-br from-[#5a2316] to-[#7c4d1e] p-6 shadow-sm">
+      
+      {/* Add-Ons Header */}
+      <div className="flex items-center gap-2 border-b border-white/10 pb-4">
+        <ScrollText className="h-4 w-4 text-[#e3c17d]" />
+        <p className="text-[11px] font-bold uppercase tracking-[0.28em] text-[#e3c17d]">
+          Customisation Add-Ons
+        </p>
+      </div>
+
+      {/* Add-On Items — clean table-style rows */}
+      <div className="mt-4 divide-y divide-white/8">
+        {CUSTOMIZATION_ADD_ONS.map((addOn, i) => (
+          <div
+            key={addOn.item}
+            className="flex items-center justify-between py-3"
+          >
+            <div className="flex items-center gap-3">
+              <span className="flex h-5 w-5 shrink-0 items-center justify-center rounded-full bg-white/10 text-[9px] font-bold text-[#e3c17d]">
+                {i + 1}
+              </span>
+              <p className="text-sm text-[#f8ecd8]/90">{addOn.item}</p>
+            </div>
+            <span className="ml-4 shrink-0 rounded-full border border-[#e3c17d]/30 bg-[#e3c17d]/10 px-3 py-0.5 text-[11px] font-semibold text-[#e3c17d]">
+              {addOn.price}
+            </span>
+          </div>
+        ))}
+      </div>
+    </div>
+
+  </div>
+</section>
+
+
+        
 
         <section className="mx-auto max-w-7xl px-4 py-4 sm:px-6 lg:py-8">
           <div className="grid gap-6 lg:grid-cols-2">
@@ -667,14 +835,13 @@ export default function YaanaOuthanaPage() {
               <div className="flex items-center gap-3 text-[#e3c17d]">
                 <ScrollText className="h-5 w-5" />
                 <p className="text-sm font-semibold uppercase tracking-[0.28em]">
-                  Service Note
+                  Menu Note
                 </p>
               </div>
               <p className="mt-5 text-base leading-8 text-[#f3e4ca]">
-                The uploaded PDF also includes pricing and custom package structures,
-                but this web page is intentionally designed without any price display.
-                It focuses purely on menu browsing and quick lead generation through
-                WhatsApp enquiries for each item.
+                Bringing tradition to your table, one meal at a time. Browse the
+                full variety list, review the package pricing, and connect with the
+                kitchen for custom orders and event enquiries.
               </p>
             </div>
           </div>
@@ -688,14 +855,14 @@ export default function YaanaOuthanaPage() {
         <div className="mx-auto grid max-w-7xl gap-8 px-4 py-10 sm:px-6 lg:grid-cols-[1.1fr_0.9fr] lg:items-center">
           <div>
             <p className="text-sm font-semibold uppercase tracking-[0.3em] text-[#d7b16d]">
-              Yaana Outhana
+              YAANA Outhana
             </p>
             <h2 className="mt-3 font-serif text-3xl font-semibold">
-              Traditional kitchen enquiries, made simple
+              Flavours of Tradition
             </h2>
             <p className="mt-4 max-w-2xl text-sm leading-7 text-[#ecd9bc]">
-              Browse the menu, tap any dish, and connect directly with the kitchen on
-              WhatsApp for event, festive, and function enquiries.
+              Browse the menu and connect with the kitchen on WhatsApp for
+              catering and event enquiries.
             </p>
           </div>
 
@@ -723,13 +890,38 @@ export default function YaanaOuthanaPage() {
               <MessageCircle className="h-4 w-4" />
               Open WhatsApp Enquiry
             </a>
+            <a
+              href="mailto:yaanastays@gmail.com"
+              className="text-sm font-medium text-[#f8ecd8]"
+            >
+              yaanastays@gmail.com
+            </a>
             <div className="flex items-center gap-2 text-xs uppercase tracking-[0.24em] text-[#d7b16d]">
               <Clock3 className="h-4 w-4" />
-              No prices shown on this page
+              Breakfast from ₹150 per plate
             </div>
           </div>
         </div>
       </footer>
+
+      <div className="fixed bottom-5 right-5 z-50 flex flex-col gap-3 sm:bottom-6 sm:right-6">
+        <a
+          href={`https://wa.me/${WHATSAPP_NUMBER}`}
+          target="_blank"
+          rel="noopener noreferrer"
+          aria-label="Enquire on WhatsApp"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#25d366] text-white shadow-[0_14px_30px_rgba(37,211,102,0.35)] transition hover:scale-105"
+        >
+          <MessageCircle className="h-6 w-6" />
+        </a>
+        <a
+          href={`tel:${PHONE_NUMBER}`}
+          aria-label="Call YAANA Outhana"
+          className="flex h-14 w-14 items-center justify-center rounded-full bg-[#5a2316] text-[#f8ecd8] shadow-[0_14px_30px_rgba(90,35,22,0.28)] transition hover:scale-105"
+        >
+          <Phone className="h-6 w-6" />
+        </a>
+      </div>
     </div>
   );
 }
