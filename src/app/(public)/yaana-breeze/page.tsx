@@ -415,7 +415,7 @@ const YaanaBreeze: FC = () => {
             </div>
             <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.28em] text-[#815AC0]">Rate</p>
             <div className="mt-2 flex items-baseline gap-1">
-              <span className="font-serif text-6xl font-bold text-[#3D1F6B]">₹500</span>
+              <span className="font-serif text-6xl font-bold text-[#3D1F6B]">₹350</span>
               <span className="text-xl font-semibold text-gray-400">/ 5kg</span>
             </div>
             <p className="mt-2 text-xs text-gray-500">Affordable. Transparent. Hassle-free.</p>
