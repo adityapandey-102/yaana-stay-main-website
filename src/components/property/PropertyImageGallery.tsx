@@ -118,7 +118,7 @@ export function PropertyImageGallery({ title, previewImages, images }: Props) {
           <button
             type="button"
             onClick={() => openAtSrc(preview[0])}
-            className="group relative aspect-[4/3] overflow-hidden rounded-2xl md:col-span-2"
+            className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-yaana-charcoal/5 md:col-span-2"
             aria-label="Open photo viewer"
           >
             <Image
@@ -126,7 +126,7 @@ export function PropertyImageGallery({ title, previewImages, images }: Props) {
               alt={title}
               fill
               className={[
-                "object-cover transition duration-500 group-hover:scale-105",
+                "object-contain transition duration-500",
                 loadedBySrc[preview[0]] ? "opacity-100" : "opacity-0",
               ].join(" ")}
               sizes="(max-width: 768px) 100vw, 66vw"
@@ -146,7 +146,7 @@ export function PropertyImageGallery({ title, previewImages, images }: Props) {
               key={src}
               type="button"
               onClick={() => openAtSrc(src)}
-              className="group relative aspect-[4/3] overflow-hidden rounded-2xl"
+              className="group relative aspect-[4/3] overflow-hidden rounded-2xl bg-yaana-charcoal/5"
               aria-label="Open photo viewer"
             >
               <Image
@@ -154,7 +154,7 @@ export function PropertyImageGallery({ title, previewImages, images }: Props) {
                 alt=""
                 fill
                 className={[
-                  "object-cover transition duration-500 group-hover:scale-105",
+                  "object-contain transition duration-500",
                   loadedBySrc[src] ? "opacity-100" : "opacity-0",
                 ].join(" ")}
                 sizes="(max-width: 768px) 100vw, 33vw"

@@ -292,7 +292,7 @@ export default function PropertiesDetailsPage({
 
             <PropertyImageGallery
               title={displayName}
-              previewImages={p.img}
+              previewImages={galleryImages}
               images={galleryImages}
             />
 

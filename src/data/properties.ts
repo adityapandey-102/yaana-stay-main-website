@@ -53,7 +53,6 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     href: "/property-details/YAANA-SIGNATURE",
     tags: [
       "Shared",
-      "AC",
       "Furnished",
       "Food",
       "Single",
@@ -63,9 +62,9 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     rating: "4.5",
     type: "flat",
     img: [
-      "/assets/gallery/yaana-signature/yaana-signature-03.jpeg",
-      "/assets/gallery/yaana-signature/yaana-signature-06.jpeg",
-      "/assets/gallery/yaana-signature/yaana-signature-14.jpeg",
+      "/assets/new/yaana-signature/01.jpeg",
+      "/assets/new/yaana-signature/02.jpeg",
+      "/assets/new/yaana-signature/03.jpeg",
     ],
     tagline: "Premium Living for Independent Women",
     positioning:
@@ -139,7 +138,7 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
         id: 4,
         question: "What room facilities can residents expect?",
         answer:
-          "Rooms are thoughtfully designed with modern interiors and include a cot with spring mattress, blackout curtains, cupboards, dressing table, study table and chair, attached western bathrooms, air conditioning, TV, and a refrigerator for complete comfort and convenience.",
+          "Rooms are thoughtfully designed with modern interiors and include a cot with spring mattress, blackout curtains, cupboards, dressing table, study table and chair, attached western bathrooms, TV, and a refrigerator for complete comfort and convenience.",
       },
     ],
   },
@@ -165,9 +164,9 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     rating: "4.0",
     type: "hostel",
     img: [
-      "/assets/gallery/yaana-livings/yaana-livings-05.jpeg",
-      "/assets/gallery/yaana-livings/yaana-livings-07.jpeg",
-      "/assets/gallery/yaana-livings/yaana-livings-10.jpeg",
+      "/assets/new/yaana-livings/01.jpeg",
+      "/assets/new/yaana-livings/02.jpeg",
+      "/assets/new/yaana-livings/03.jpeg",
     ],
     tagline: "Smart Living with Maximum Value",
     positioning:
@@ -254,9 +253,9 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     rating: "4.5",
     type: "pg",
     img: [
-      "/assets/gallery/yaana-comforts/yaana-comforts-06.jpeg",
-      "/assets/gallery/yaana-comforts/yaana-comforts-03.jpeg",
-      "/assets/gallery/yaana-comforts/yaana-comforts-07.jpeg",
+      "/assets/new/yaana-comfort/01.jpeg",
+      "/assets/new/yaana-comfort/02.jpeg",
+      "/assets/new/yaana-comfort/03.jpeg",
     ],
     tagline: "Comfortable, Secure and Hassle-Free Living",
     positioning:
@@ -339,9 +338,9 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     rating: "4.9",
     type: "hostel",
     img: [
-      "/assets/gallery/yaana-homes/yaana-homes-01.jpeg",
-      "/assets/gallery/yaana-homes/yaana-homes-03.jpeg",
-      "/assets/gallery/yaana-homes/yaana-homes-04.jpeg",
+      "/assets/new/yaana-homes/01.jpeg",
+      "/assets/new/yaana-homes/02.jpeg",
+      "/assets/new/yaana-homes/03.jpeg",
     ],
     tagline: "Affordable Living with Personal Comfort",
     positioning:

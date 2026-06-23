@@ -116,9 +116,9 @@ function formatRupeesToINR(input: string) {
                     </span>
                   ))}
                 </div>
-                <p className="text-yaana-charcoal font-semibold mb-4">
+                {/* <p className="text-yaana-charcoal font-semibold mb-4">
                   {p.priceLabel === "Starts from" ? `${formatRupeesToINR(p.price)}` : `${p.priceLabel} ${formatRupeesToINR(p.price)}`}
-                </p>
+                </p> */}
                 <div className="flex flex-col sm:flex-row gap-2 mt-auto">
                   <Button asChild size="md" className="sm:flex-1  bg-yaana-charcoal hover:bg-yaana-charcoal-light">
                     <Link href={`/property-details/${p.slug}`}>View details</Link>
