@@ -106,8 +106,8 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     pricing: [
       { label: "Single Room", amountPerMonth: "₹ 27,000" },
       { label: "Two Sharing", amountPerMonth: "₹ 16,000/ 17,000" },
-      { label: "Two Sharing with partition", amountPerMonth: "₹ 16,500/ 17,000" },
-      { label: "Two Sharing with  partition and balcony", amountPerMonth: "₹ 17,500/ 18,000" },
+      { label: "Two Sharing (Partition)", amountPerMonth: "₹ 16,500/ 17,000" },
+      { label: "Two Sharing (Partition and Balcony)", amountPerMonth: "₹ 17,500/ 18,000" },
       { label: "Three Sharing", amountPerMonth: "₹ 12,000" },
     ],
     deposit: "2 months rent as deposit",
@@ -198,7 +198,7 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     pricing: [
       { label: "Single Room", amountPerMonth: "₹ 24,000" },
       { label: "Two Sharing", amountPerMonth: "₹ 14,000" },
-      { label: "Two Sharing (Portion)", amountPerMonth: "₹ 16,000" },
+      { label: "Two Sharing (Partition)", amountPerMonth: "₹ 16,000" },
       { label: "Three Sharing", amountPerMonth: "₹ 10,000" },
       { label: "Four Sharing", amountPerMonth: "₹ 9,000" },
       { label: "Five Sharing", amountPerMonth: "₹ 7,000" },
