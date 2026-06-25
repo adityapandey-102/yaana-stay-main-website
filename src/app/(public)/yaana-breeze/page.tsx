@@ -42,14 +42,14 @@ const STEPS: Step[] = [
 
 const FEATURES: Feature[] = [
   { icon: ShieldCheck, label: "Safe & Secure", desc: "Handled with care and respect" },
-  { icon: Heart, label: "Trusted Service", desc: "Exclusively for Yaana girls" },
+  { icon: Heart, label: "Trusted Service", desc: "Exclusively for YAANA girls" },
   { icon: Clock, label: "Time Saver", desc: "More time for what matters" },
   { icon: Shirt, label: "Fresh. Neat. You.", desc: "Because you deserve the best" },
 ];
 
 const PRICING_TAGS = ["No hidden fees", "Pay on pickup", "5 kg per batch"] as const;
 const HERO_IMAGE_SRC = "/assets/yaana-breeze.jpeg";
-const HERO_IMAGE_ALT = "Yaana Breeze laundry service poster";
+const HERO_IMAGE_ALT = "YAANA Breeze laundry service poster";
 const BREEZE_NAV_LINKS = [
   { href: "/", label: "Home" },
   { href: "/life-at-yaana", label: "Life @ YAANA" },
@@ -103,8 +103,8 @@ const YaanaBreeze: FC = () => {
   };
 
   const getShareText = () => {
-    if (typeof window === "undefined") return "Check out the Yaana Breeze poster";
-    return `Check out Yaana Breeze: ${window.location.href}`;
+    if (typeof window === "undefined") return "Check out the YAANA Breeze poster";
+    return `Check out YAANA Breeze: ${window.location.href}`;
   };
 
   const downloadPoster = async () => {
@@ -166,12 +166,12 @@ const YaanaBreeze: FC = () => {
             <div className="flex min-w-0 items-center gap-3">
               <Link
                 href="/yaana-breeze"
-                aria-label="Yaana Breeze"
+                aria-label="YAANA Breeze"
                 className="flex h-12 w-12 shrink-0 items-center justify-center overflow-hidden rounded-full border border-[#DCC8EF] bg-white shadow-sm"
               >
                 <Image
                   src="/assets/logos/yaana-breeze.jpeg"
-                  alt="Yaana Breeze logo"
+                  alt="YAANA Breeze logo"
                   width={48}
                   height={48}
                   className="h-full w-full object-cover"
@@ -180,7 +180,7 @@ const YaanaBreeze: FC = () => {
               </Link>
               <Link href="/yaana-breeze" className="min-w-0">
                 <p className="font-serif text-lg font-bold leading-none text-[#3D1F6B] sm:text-xl">
-                  Yaana <span className="italic text-[#815AC0]">Breeze</span>
+                  YAANA <span className="italic text-[#815AC0]">Breeze</span>
                 </p>
                 <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-[#815AC0]/70">
                   Laundry Service
@@ -223,7 +223,7 @@ const YaanaBreeze: FC = () => {
               <div className="mb-8 flex items-center justify-between">
                 <div>
                   <p className="font-serif text-2xl font-bold">
-                    Yaana <span className="italic text-[#D8B4F8]">Breeze</span>
+                    YAANA <span className="italic text-[#D8B4F8]">Breeze</span>
                   </p>
                   <p className="mt-1 text-[10px] font-semibold uppercase tracking-[0.28em] text-white/65">
                     Quick Menu
@@ -287,12 +287,12 @@ const YaanaBreeze: FC = () => {
             {/* Left: text */}
             <div className="space-y-5 p-7 sm:p-9 lg:p-10">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-[#815AC0]/10 px-3 py-1 text-[10px] font-bold uppercase tracking-[0.28em] text-[#815AC0]">
-                <Sparkles className="h-3 w-3" /> Exclusively for Yaana Girls
+                <Sparkles className="h-3 w-3" /> Exclusively for YAANA Girls
               </span>
 
               <div>
                 <h1 className="font-serif text-4xl font-bold leading-tight text-[#3D1F6B] sm:text-5xl lg:text-[3.65rem]">
-                  Yaana
+                  YAANA
                 </h1>
                 <h1 className="font-serif text-4xl font-bold italic leading-tight text-[#815AC0] sm:text-5xl lg:text-[3.65rem]">
                   Breeze
@@ -301,7 +301,7 @@ const YaanaBreeze: FC = () => {
 
               <div className="space-y-1">
                 <p className="text-xs font-semibold uppercase tracking-[0.3em] text-[#815AC0]/70">
-                  Laundry Service for the Girls of Yaana Groups
+                  Laundry Service for the Girls of YAANA Groups
                 </p>
                 <p className="font-serif text-sm italic text-gray-500">
                   Because you deserve clean clothes and more free time. ♡
@@ -333,7 +333,7 @@ const YaanaBreeze: FC = () => {
               type="button"
               onClick={() => setIsPosterOpen(true)}
               className="group relative flex min-h-[320px] w-full items-center justify-center overflow-hidden bg-gradient-to-br from-[#EDE0F7] via-[#E2CEEF] to-[#D4B8E8] text-left sm:min-h-[380px] lg:min-h-[470px]"
-              aria-label="Open Yaana Breeze poster in larger view"
+              aria-label="Open YAANA Breeze poster in larger view"
             >
               <Image
                 src={HERO_IMAGE_SRC}
@@ -392,7 +392,7 @@ const YaanaBreeze: FC = () => {
               <MapPin className="h-5 w-5 text-[#815AC0]" />
             </div>
             <p className="text-[10px] font-bold uppercase tracking-[0.28em] text-[#815AC0]">Drop & Pick-up Centre</p>
-            <h3 className="mt-1 font-serif text-2xl font-bold text-[#3D1F6B]">Yaana Living</h3>
+            <h3 className="mt-1 font-serif text-2xl font-bold text-[#3D1F6B]">YAANA Living</h3>
             <address className="mt-3 not-italic text-sm leading-relaxed text-gray-500">
               18, 1st Main Rd, Chikkamaranahalli,<br />
               M S R Nagar, Mathikere,<br />
@@ -432,7 +432,7 @@ const YaanaBreeze: FC = () => {
 
         {/* ── WHY YAANA BREEZE ── */}
         <section>
-          <SectionLabel text="Why Yaana Breeze" />
+          <SectionLabel text="Why YAANA Breeze" />
           <div className="grid grid-cols-2 gap-3 sm:grid-cols-4">
             {FEATURES.map((f) => <FeatureCard key={f.label} {...f} />)}
           </div>
@@ -442,8 +442,8 @@ const YaanaBreeze: FC = () => {
         <section className="rounded-3xl border border-[#E8D9F5] bg-white/80 p-6 shadow-sm backdrop-blur-sm sm:p-8">
           <SectionLabel text="About the Service" />
           <div className="mx-auto max-w-2xl space-y-3 text-center text-sm leading-relaxed text-gray-500">
-            <p>Yaana Breeze is a thoughtfully designed laundry service created exclusively for the girls of Yaana, making everyday living simpler and more comfortable.</p>
-            <p>Just drop off your clothes at Yaana Living, and they&apos;ll be professionally washed, carefully dried, and neatly ironed—ready for you to pick up fresh and hassle-free.</p>
+            <p>YAANA Breeze is a thoughtfully designed laundry service created exclusively for the girls of YAANA, making everyday living simpler and more comfortable.</p>
+            <p>Just drop off your clothes at YAANA Living, and they&apos;ll be professionally washed, carefully dried, and neatly ironed—ready for you to pick up fresh and hassle-free.</p>
             <p>
               Priced at{" "}
               <span className="font-semibold text-[#815AC0]">₹500 for 5 kg</span>
@@ -460,7 +460,7 @@ const YaanaBreeze: FC = () => {
             <span className="text-[#815AC0] italic">Confident you.</span>
           </h2>
           <p className="mx-auto mt-2 max-w-sm text-sm text-gray-400">
-            Join the Yaana girls who&apos;ve made laundry the easiest part of their week. ♡
+            Join the YAANA girls who&apos;ve made laundry the easiest part of their week. ♡
           </p>
           <a
             href="tel:9844749685"
@@ -475,7 +475,7 @@ const YaanaBreeze: FC = () => {
       {/* ── FOOTER ── */}
       <footer className="border-t border-[#E8D9F5] bg-[#3D1F6B] py-5 text-center">
         <p className="font-serif text-sm text-white/60">
-          Yaana Groups &nbsp;|&nbsp; <span className="italic">Caring for you, every detail. ♡</span>
+          YAANA Groups &nbsp;|&nbsp; <span className="italic">Caring for you, every detail. ♡</span>
         </p>
       </footer>
 
@@ -485,9 +485,9 @@ const YaanaBreeze: FC = () => {
           className="max-w-[min(96vw,980px)] border-white/10 bg-[#2A133F] p-3 text-white sm:p-4"
         >
           <DialogHeader className="sr-only">
-            <DialogTitle>Yaana Breeze poster</DialogTitle>
+            <DialogTitle>YAANA Breeze poster</DialogTitle>
             <DialogDescription>
-              Enlarged Yaana Breeze poster with options to download it or share it on WhatsApp, Instagram, and Facebook.
+              Enlarged YAANA Breeze poster with options to download it or share it on WhatsApp, Instagram, and Facebook.
             </DialogDescription>
           </DialogHeader>
 

@@ -9,7 +9,6 @@ import { LIFE_GALLERIES } from "@/data/lifeAtYaanaGallery";
 import {
   MapPin,
   Bed,
-  Wind,
   Wifi,
   Sparkles,
   ShieldCheck,
@@ -32,7 +31,6 @@ import {
   Leaf,
   ShowerHead,
   Cctv,
-  Camera,
   Fingerprint,
   ArrowUpDown,
   Shirt,
@@ -41,7 +39,8 @@ import {
   Dumbbell,
   WashingMachine,
   CookingPot,
-  Armchair
+  Armchair,
+  Blinds
 } from "lucide-react";
 import { PropertyShareButtons } from "@/components/property/PropertyShareButtons";
 import { PropertyImageGallery } from "@/components/property/PropertyImageGallery";
@@ -90,7 +89,8 @@ function normalizeText(input: string) {
 const AMENITY_ICON_RULES = [
   { icon: Bed, keywords: ["guest stay", "guest house"] },
   { icon: Bed, keywords: ["cot", "bed", "mattress"] },
-  { icon: DoorClosed, keywords: ["cupboard", "wardrobe", "curtain"] },
+  { icon: DoorClosed, keywords: ["cupboard", "wardrobe"] },
+  { icon: Blinds, keywords: ["curtain"] },
   { icon: Lamp, keywords: ["dressing table", "lamp", "lighting"] },
   { icon: BookOpen, keywords: ["study table", "study", "chair", "desk"] },
   { icon: Footprints, keywords: ["shoe rack"] },

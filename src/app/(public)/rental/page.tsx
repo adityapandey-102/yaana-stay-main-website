@@ -68,7 +68,7 @@ export default function RentalPage() {
 
         {/* Centered Content */}
         <div className="relative z-10 mx-auto max-w-7xl px-6">
-          <div className="flex flex-col gap-6 rounded-2xl border border-lavender-200/70 bg-white/90 p-6 shadow-lg backdrop-blur md:flex-row md:items-center md:justify-between md:p-8">
+          {/* <div className="flex flex-col gap-6 rounded-2xl border border-lavender-200/70 bg-white/90 p-6 shadow-lg backdrop-blur md:flex-row md:items-center md:justify-between md:p-8">
             <div>
               <h2 className="text-2xl font-semibold text-yaana-charcoal md:text-3xl">
                 Our Properties Across Bengaluru
@@ -96,9 +96,9 @@ export default function RentalPage() {
                 <p className="mt-1">Amenities</p>
               </div>
             </div>
-          </div>
+          </div> */}
 
-          <div className="mt-14">
+          <div className="mt-6">
             <RentalPageContent />
           </div>
         </div>

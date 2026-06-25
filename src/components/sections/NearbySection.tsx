@@ -186,7 +186,7 @@ export default function NearbySection() {
               <h3 className="mt-1 text-base font-serif font-bold text-yaana-nearblack">{sel.name}</h3>
               <p className="mt-1 text-xs leading-relaxed text-yaana-charcoal/65">{sel.address}</p>
               <div className="mt-3 flex items-center justify-between">
-                <span className="text-sm font-bold" style={{ color: sel.accent }}>{sel.price}</span>
+                {/* <span className="text-sm font-bold" style={{ color: sel.accent }}>{sel.price}</span> */}
                 <a
                   href={`https://www.google.com/maps/search/?api=1&query=${encodeURIComponent(sel.address)}`}
                   target="_blank"
