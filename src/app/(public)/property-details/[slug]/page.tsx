@@ -408,7 +408,7 @@ export default function PropertiesDetailsPage({
                       </td>
                       <td className="px-4 py-3 text-right">
                         {/* {formatRupees(price.amountPerMonth)} / month */}
-                        {price.amountPerMonth} / month
+                        {price.amountPerMonth} per month
                       </td>
                     </tr>
                   ))}
