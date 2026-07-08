@@ -65,26 +65,7 @@ function normalizeText(input: string) {
   return input.replace(/\bpg\b/gi, "accommodation");
 }
 
-// function normalizeTag(input: string) {
-//   const cleaned = normalizeText(input);
-//   if (/ladies/i.test(cleaned)) {
-//     return cleaned.replace(/ladies/gi, "Women's");
-//   }
-//   return cleaned;
-// }
 
-// function normalizeName(input: string) {
-//   return input.replace(/yaana home/gi, "YAANA Home");
-// }
-
-// function formatRupees(input: string) {
-//   return input
-//     .replace(/INR/gi, "₹")
-//     .replace(/Rs\.?/gi, "₹")
-//     .replace(/\/-+/g, "")
-//     .replace(/\s{2,}/g, " ")
-//     .trim();
-// }
 
 const AMENITY_ICON_RULES = [
   { icon: Bed, keywords: ["guest stay", "guest house"] },
@@ -167,7 +148,7 @@ export async function generateMetadata({
   const description = `${normalizeText(p.tagline)}. ${normalizeText(
     p.positioning,
   )}`;
-  // const titleName = normalizeName(p.name);
+
   const titleName = p.name;
 
   return {
@@ -211,7 +192,7 @@ export default function PropertiesDetailsPage({
   const highlights = (p.highlights ?? [])
     .map((highlight) => highlight.trim())
     .filter(Boolean);
-  // const displayName = normalizeName(p.name);
+
   const displayName = p.name;
 
   const galleryId = p.slug.toLowerCase();
@@ -245,14 +226,7 @@ export default function PropertiesDetailsPage({
 
       <section className="relative overflow-hidden bg-yaana-nearblack/95-- py-20 lg:py-28">
         <div className="absolute inset-0">
-          {/* <Image
-            src="/assets/hero-bg.webp"
-            alt={p.name}
-            fill
-            className="object-cover opacity-25"
-            sizes="100vw"
-            priority
-          /> */}
+         
           <LavenderWallpaper />
           <div className="absolute inset-0 bg-gradient-to-br   from-purple-200 via-purple-400   to-yaana-dark-lavender/70" />
         </div>
@@ -267,14 +241,7 @@ export default function PropertiesDetailsPage({
           <p className="mx-auto mt-5 max-w-3xl text-sm text-white/90-- text-black sm:text-base md:text-lg">
             {normalizeText(p.tagline)}
           </p>
-          {/* <div className="mt-8 flex flex-wrap items-center justify-center gap-3">
-            <span className="rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider">
-              {normalizeTag(p.type)}
-            </span>
-            <span className="rounded-full border border-white/30 bg-white/10 px-4 py-1.5 text-xs font-medium uppercase tracking-wider">
-              {normalizeText(p.room)}
-            </span>
-          </div> */}
+         
         </div>
       </section>
 
@@ -282,13 +249,7 @@ export default function PropertiesDetailsPage({
         {/* <LavenderWallpaper/> */}
         <div className="mx-auto max-w-6xl px-4 sm:px-6 lg:px-8">
           <div className="rounded-2xl border border-lavender-200/70 bg-white/85 p-5 shadow-lg backdrop-blur sm:p-7">
-            {/* <div className="mb-5 flex flex-wrap items-start justify-between gap-4">
-              <p className="flex items-start gap-2 text-sm text-yaana-charcoal/80 sm:text-base">
-                <MapPin className="mt-0.5 h-4 w-4 shrink-0" />
-                <span>{p.loc}</span>
-              </p>
-              <PropertyShareButtons url={shareUrl} title={displayName} />
-            </div> */}
+           
 
             <PropertyImageGallery
               title={displayName}
@@ -296,32 +257,7 @@ export default function PropertiesDetailsPage({
               images={galleryImages}
             />
 
-            {/* <div className="mt-6 grid grid-cols-1 gap-4 rounded-xl bg-lavender-50/60 p-4 md:grid-cols-3">
-              <div>
-                <p className="text-xs uppercase tracking-wide text-yaana-charcoal/60">
-                  Starting Price
-                </p>
-                <p className="mt-1 text-xl font-semibold text-yaana-charcoal">
-                  {p.price}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wide text-yaana-charcoal/60">
-                  Room Options
-                </p>
-                <p className="mt-1 text-base font-medium text-yaana-charcoal">
-                  {p.room}
-                </p>
-              </div>
-              <div>
-                <p className="text-xs uppercase tracking-wide text-yaana-charcoal/60">
-                  Utilities Included
-                </p>
-                <p className="mt-1 text-base font-medium text-yaana-charcoal">
-                  {p.utilitiesIncluded.join(", ")}
-                </p>
-              </div>
-            </div> */}
+          
           </div>
         </div>
       </section>
@@ -407,7 +343,7 @@ export default function PropertiesDetailsPage({
                         {price.label}
                       </td>
                       <td className="px-4 py-3 text-right">
-                        {/* {formatRupees(price.amountPerMonth)} / month */}
+
                         {price.amountPerMonth} per month
                       </td>
                     </tr>
@@ -415,7 +351,6 @@ export default function PropertiesDetailsPage({
                   <tr className="border-t border-lavender-200/60">
                     <td className="px-4 py-3 font-medium">Deposit</td>
                     <td className="px-4 py-3 text-right">
-                      {/* {formatRupees(p.deposit)} */}
                       {p.deposit}
                     </td>
                   </tr>
@@ -429,7 +364,7 @@ export default function PropertiesDetailsPage({
                   <tr className="border-t border-lavender-200/60">
                     <td className="px-4 py-3 font-medium">Food</td>
                     <td className="px-4 py-3 text-right">
-                      {/* {formatRupees(p.food)} */}
+
                       {p.food}
                     </td>
                   </tr>
@@ -550,28 +485,7 @@ export default function PropertiesDetailsPage({
           </div>
         </div>
       </section>
-      {/* 
-      <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
-        <h2 className="text-2xl font-semibold text-yaana-charcoal">
-          Life at YAANA
-        </h2>
-        <div className="mt-6 grid grid-cols-2 gap-4 sm:grid-cols-4">
-          {LIFE_IMAGES.map((src, i) => (
-            <div
-              key={i}
-              className="relative aspect-square overflow-hidden rounded-2xl border border-lavender-200 bg-white/70 backdrop-blur"
-            >
-              <Image
-                src={src}
-                alt=""
-                fill
-                className="object-cover transition duration-500 hover:scale-105"
-                sizes="(max-width: 768px) 50vw, 25vw"
-              />
-            </div>
-          ))}
-        </div>
-      </section> */}
+      
 
       <section className="mx-auto max-w-6xl px-4 py-8 sm:px-6 lg:px-8">
         <h2 className="text-2xl font-semibold text-yaana-charcoal">
@@ -590,11 +504,7 @@ export default function PropertiesDetailsPage({
         </div>
       </section>
 
-      {/* <section className="bg-yaana-nearblack py-10">
-        <p className="px-4 text-center text-lg text-white md:text-xl">
-          Every story deserves a chapter called yaanalivings!
-        </p>
-      </section> */}
+    
 
       <section className="relative bg-lavender-50-- py-12">
         <div className="mx-auto max-w-6xl px-4">

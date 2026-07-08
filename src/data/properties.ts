@@ -45,8 +45,7 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     id: 1,
     slug: "YAANA-SIGNATURE",
     name: "YAANA SIGNATURE ",
-    // loc: "New Number 2, PID No. 40162-2, Jaladarshini Layout, Near Ramaiah College Gate 4, Bengaluru - 560065",
-    loc: "New Number 2, PID Number 40162-2, Jaladarshini Layout, Near Ramaiah College Gate 4, Bengaluru, Karnataka 560065",
+    loc: "New Number 2, PID Number 40162-2, Jaladarshini Layout, Near Ramaiah College Gate 4, Bengaluru, Karnataka 560054",
     room: "Single, Double, Triple",
     price: "₹ 12,000",
     priceLabel: "Starts from",
@@ -116,7 +115,7 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     utilitiesIncluded: ["Rent includes all utilities"],
     audience: "Working women professionals and female students.",
     map_url:
-      "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d31096.69375255088!2d77.5184896142318!3d13.030149436581027!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae175bee41f961%3A0xea29650daddf8073!2sM%20S%20Ramaiah%20College%20of%20Education!5e0!3m2!1sen!2sin!4v1773478228694!5m2!1sen!2sin",
+     "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d15548.34553797892!2d77.55939204979725!3d13.030170746647643!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3bae17dc4511f8b9%3A0x30d9c23039cf63f5!2sJaladarshini%20Layout%2C%20Mathikere%2C%20Bengaluru%2C%20Karnataka%20560054!5e0!3m2!1sen!2sin!4v1783494004818!5m2!1sen!2sin",
     faqs: [
       {
         id: 1,
