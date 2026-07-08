@@ -245,7 +245,6 @@ export const RENTAL_PROPERTIES: RentalProperty[] = [
     id: 3,
     slug: "YAANA-COMFORTS",
     name: "YAANA COMFORTS",
-    // loc: " YAANA Comforts - Paying Guest accommodation for women-41, 5th Main Rd, off New BEL Road, behind Malabar gold and diamonds, Chikkamaranahalli, Amarjyothi Layout, Raj Mahal Vilas 2nd Stage, R.M.V. 2nd Stage, Bengaluru, Karnataka 560094",
     loc: "YAANA Comforts – PG Accommodation for Women, 41, 5th Main Road, Off New BEL Road, Behind Malabar Gold and Diamonds, Chikkamaranahalli, Amarjyothi Layout, Raj Mahal Vilas 2nd Stage, Bengaluru, Karnataka 560094",
     room: "Single, Double",
     price: "₹ 11,000",

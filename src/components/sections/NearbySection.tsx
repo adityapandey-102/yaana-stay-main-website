@@ -12,10 +12,10 @@ import { cn } from "@/lib/utils";
 type LandmarkCategory = "education" | "health" | "transit" | "institution" | "safety" | "lifestyle" | "work";
 
 const properties = [
-  { id: "signature", shortName: "Signature", name: "YAANA SIGNATURE", address: "New No. 2, Jaladarshini Layout, Near Ramaiah College Gate 4, Bengaluru 560065", price: "₹12,000/mo", accent: "#815AC0", coords: { x: 48, y: 44 } },
-  { id: "living", shortName: "Living", name: "YAANA LIVING", address: "18, 1st Main Rd, M.S.R. Nagar, Mathikere, Bengaluru 560054", price: "₹7,000/mo", accent: "#9163CB", coords: { x: 38, y: 56 } },
-  { id: "comforts", shortName: "Comforts", name: "YAANA COMFORTS", address: "41, 5th Main Rd, Off New BEL Road, Amarjyothi Layout, Bengaluru 560094", price: "₹11,000/mo", accent: "#6247AA", coords: { x: 28, y: 36 } },
-  { id: "homes", shortName: "Homes", name: "YAANA HOMES", address: "21, MSR Nagar Road Extension, Pipeline Road, Mathikere, Bengaluru 560054", price: "₹8,000/mo", accent: "#A06CD5", coords: { x: 58, y: 62 } },
+  { id: "signature", shortName: "Signature", name: "YAANA SIGNATURE", address: "New Number 2, PID Number 40162-2, Jaladarshini Layout, Near Ramaiah College Gate 4, Bengaluru,, Bengaluru, Karnataka 560054", price: "₹12,000/mo", accent: "#815AC0", coords: { x: 48, y: 44 } },
+  { id: "living", shortName: "Living", name: "YAANA LIVING", address: "YAANA Living – PG Accommodation for Women, 18, 1st Main Road, Chikkamaranahalli, M.S.R. Nagar, Mathikere, Bengaluru, Karnataka 560054", price: "₹7,000/mo", accent: "#9163CB", coords: { x: 38, y: 56 } },
+  { id: "comforts", shortName: "Comforts", name: "YAANA COMFORTS", address: "YAANA Comforts – PG Accommodation for Women, 41, 5th Main Road, Off New BEL Road, Behind Malabar Gold and Diamonds, Chikkamaranahalli, Amarjyothi Layout, Raj Mahal Vilas 2nd Stage, Bengaluru, Karnataka 560094", price: "₹11,000/mo", accent: "#6247AA", coords: { x: 28, y: 36 } },
+  { id: "homes", shortName: "Homes", name: "YAANA HOMES", address: "YAANA Homes, 21, MSR Nagar Road Extension, 11th Cross, Pipeline Road, Mathikere, Bengaluru, Karnataka 560054", price: "₹8,000/mo", accent: "#A06CD5", coords: { x: 58, y: 62 } },
 ];
 
 const categoryMeta: Record<LandmarkCategory, { label: string; color: string }> = {
@@ -88,7 +88,7 @@ export default function NearbySection() {
             </div>
 
             {/* Map */}
-            <div className="relative overflow-hidden rounded-xl border border-lavender-100 bg-[#f5eff9]" style={{ height: 420 }}>
+            <div className="relative overflow-hidden rounded-xl  border border-lavender-100 bg-[#f5eff9]" style={{ height: 420 }}>
               {/* Grid */}
               <div className="absolute inset-0 bg-[linear-gradient(rgba(129,90,192,0.07)_1px,transparent_1px),linear-gradient(90deg,rgba(129,90,192,0.07)_1px,transparent_1px)] bg-[size:32px_32px]" />
               {/* Roads */}
@@ -184,7 +184,10 @@ export default function NearbySection() {
             <div className="rounded-2xl border p-4 shadow-[0_8px_32px_rgba(95,63,135,0.1)]" style={{ borderColor: `${sel.accent}33`, background: `linear-gradient(135deg,${sel.accent}10,#fff)` }}>
               <p className="text-[9px] font-bold uppercase tracking-[0.3em]" style={{ color: sel.accent }}>Selected</p>
               <h3 className="mt-1 text-base font-serif font-bold text-yaana-nearblack">{sel.name}</h3>
-              <p className="mt-1 text-xs leading-relaxed text-yaana-charcoal/65">{sel.address}</p>
+              {/* <p className="mt-1 text-xs leading-relaxed text-yaana-charcoal/65">{sel.address}</p> */}
+              <p className="mt-1 text-xs leading-relaxed text-yaana-charcoal/65">{sel.address.length > 81
+                ? `${sel.address.slice(0, 78)}...`
+                : sel.address}</p>
               <div className="mt-3 flex items-center justify-between">
                 {/* <span className="text-sm font-bold" style={{ color: sel.accent }}>{sel.price}</span> */}
                 <a
