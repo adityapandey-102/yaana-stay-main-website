@@ -101,7 +101,7 @@ export function Footer() {
         <div className="pt-8 border-t border-white/10-- border-black/10">
           <div className="flex flex-col md:flex-row justify-between items-center gap-4">
             <p className="text-sm text-white/60--">
-              © Copyright 2026 by  YAANA - <a href="https://www.houseofkhalak.com/" className=" transition-colors" aria-label="Instagram">Designed By HOK</a>
+              © Copyright 2026 by YAANA Living - <a href="https://www.houseofkhalak.com/" className=" transition-colors" aria-label="Instagram">Designed By HOK</a>
             </p>
             <div className="flex gap-4">
               <a href="#" className="w-8 h-8 rounded-full bg-white/10 hover:bg-lavender-600 flex items-center justify-center transition-colors" aria-label="Instagram">
